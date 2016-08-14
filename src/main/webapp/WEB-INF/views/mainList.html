@@ -1,0 +1,56 @@
+<div th:fragment="mainList">
+	<div ng-controller="IOController">
+		<br />
+		<!-- <span th:text="${persons}"> </span> <br /> -->
+
+		<button ng-click="refresh()">Load Data></button>
+
+		<div ng-show="viewState[0]">
+			<table ng-repeat="person in persons track by $index">
+				<tr ng-hide="person.edit">
+					<td>
+						<h1>{{person.name}}</h1>
+					</td>
+					<td>
+						<!-- h2 ng-if="person.status">In Office</h2-->
+					</td>
+					<td>
+						<!-- h2 ng-if="!person.status">Out</h2-->
+					</td>
+					<td><span><em>{{person.etb}}</em></span></td>
+					<td><span>{{person.location}}</span></td>
+					<td><span>{{person.description}}</span></td>
+					<td>
+						<button ng-click="edit(person)">Edit</button>
+					</td>
+					<!--ng-show="person.edit"-->
+				</tr>
+				<tr ng-hide="!person.edit">
+					<form>
+						<!-- ng-submit="saveEdit(person)" -->
+						<td><input type="text" ng-if="person.edit"
+							ng-model="person.name" placeholder="person.name"></input></td>
+						<td>
+							<!-- h2 ng-if="person.status">In Office</h2-->
+						</td>
+						<td>
+							<!-- h2 ng-if="!person.status">Out</h2-->
+						</td>
+						<td><input type="text" ng-if="person.edit"
+							ng-model="person.etb" placeholder="person.etb"></input></td>
+						<td><input type="text" ng-if="person.edit"
+							ng-model="person.location" placeholder="person.location"></input></td>
+						<td><input type="text" ng-if="person.edit"
+							ng-model="person.description" placeholder="person.description"></input></td>
+						<td>
+							<button ng-click="save(person)">Save</button> <!-- <input type="submit" value="Submit"></input> -->
+							<button ng-click="delete(person)">Remove</button> <!-- <input type="submit" value="Submit"></input> -->
+						</td>
+						<!--ng-show="person.edit"-->
+					</form>
+				</tr>
+			</table>
+			<button ng-click="addPerson()">Add New</button>
+		</div>
+	</div>
+</div>

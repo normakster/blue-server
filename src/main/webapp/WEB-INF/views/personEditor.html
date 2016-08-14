@@ -1,0 +1,32 @@
+<div th:fragment="personEditor">
+	<div ng-controller="personEditor">
+		<div ng-show="viewState[1]">
+			<table>
+				<tr>
+					<td><span>Name</span></td>
+					<td><input type="text" ng-model="person.name" size="50"
+						placeholder="name"></input></td>
+				</tr>
+				<tr>
+					<td><span>Estimated time Back</span></td>
+					<td><input type="text" ng-model="person.etb" size="50"
+						placeholder="etb"></input></td>
+				</tr>
+				<tr>
+					<td><span>Location</span></td>
+					<td><input type="text" ng-model="person.location" size="50"
+						placeholder="location"></input></td>
+				</tr>
+				<tr>
+					<td><span>Description</span></td>
+					<td><input type="text" ng-model="person.description" size="50"
+						placeholder="description"></input></td>
+				</tr>
+				<tr>
+					<td><button ng-click="saveEdit()">Save</button></td>
+					<td><button ng-click="cancelEdit()">Cancel</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

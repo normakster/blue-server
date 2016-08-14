@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title th:text="${title}"></title>
+<!-- title th:include="layout :: pageTitle"></title-->
+<script>
+	document.write('<base href="' + document.location + '" />');
+</script>
+<link rel="stylesheet" href="/resources/style.css" />
+<script data-require="angular.js@1.4.x" src="/resources/angular.js"
+	data-semver="1.4.1"></script>
+<!-- <script data-require="jquery@2.1.3" data-semver="2.1.3"
+	src="http://code.jquery.com/jquery-2.1.3.min.js"></script> -->
+<!-- <script data-require="bootstrap@*" data-semver="3.3.2"
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+<!--  -->
+<script src="/resources/angular/angular-resource.js"></script>
+<script src="/resources/angular/jquery-2.1.3.min.js"></script>
+<script src="/resources/angular/bootstrap.min.js"></script>
+<script src="/resources/app.js"></script>
+<script src="/resources/ioCtr.js"></script>
+<script src="/resources/peCtr.js"></script>
+<script src="/resources/util.js"></script>
+</head>
+
+<body ng-app="ioBoard">
+	<!-- <button ng-click="doSomething()">Toggle Views</button> -->
+	<div ng-show="false">
+		<div ng-controller="ViewCtr">
+			<button ng-click="toggleViews()">Toggle Views</button>
+			<!-- <span>Main list view state: {{serviceViewStates.vStates[0]}} </span> <br /> <span>Person
+			editor view state: {{serviceViewStates.vStatesviewState[1]}} </span> <br /> -->
+		</div>
+		<span>Main list view state: {{viewState[0]}} </span> <br /> <span>Person
+			editor view state: {{viewState[1]}} </span> <br />
+	</div>
+	<div th:include="mainList :: mainList"></div>
+	<!--  -->
+	<div th:include="personEditor :: personEditor"></div>
+	<!--  -->
+
+</body>
+<footer th:include="layout :: footer"> </footer>
+</html>
